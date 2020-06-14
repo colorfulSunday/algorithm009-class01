@@ -46,7 +46,8 @@ var lemonadeChange = function (bills) {
 // @lc code=end
 
 //注意点，此题是要求顺序的，即顺序不可变
-//思路：3个指针记录，当前5,10,20的数量，当某个指针为负数是，找零失败var lemonadeChange = function (bills) {
+//思路：3个指针记录，当前5,10,20的数量，当某个指针为负数是，找零失败
+var lemonadeChange = function (bills) {
     var record = [0, 0, 0];
     for (let i = 0, len = bills.length; i < len; i++) {
         if (bills[i] == 5) {
@@ -73,3 +74,5 @@ var lemonadeChange = function (bills) {
     }
     return true;
 };
+
+//record[2]不是必须的，当为20时的逻辑还可优化

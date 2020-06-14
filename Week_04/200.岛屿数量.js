@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode.cn id=200 lang=javascript
- *
- * [200] 岛屿数量
- */
-
-// @lc code=start
 /**
  * @param {character[][]} grid
  * @return {number}
@@ -27,18 +20,15 @@ var numIslands = function(grid) {
             }
         }
     }
-    var dfsMark=function(grid,i,j){
-        if(grid[i][j]=='0' || i<0 || j<0 || i>m || j>n){
+    function dfsMark(grid,i,j){
+        if(i<0 || j<0 || i>=m || j>=n || grid[i][j]=='0' ){//注意：grid[i][j]=='0' 要放最后判断，不然可能索引越界
             return;
         }
         grid[i][j]='0';
         dfsMark(grid,i-1,j);
         dfsMark(grid,i,j-1);
         dfsMark(grid,i+1,j);
-        dfsMark(grid,i-1,j+1);
+        dfsMark(grid,i,j+1);
     }
+    return count;
 };
-
-
-// @lc code=end
-
